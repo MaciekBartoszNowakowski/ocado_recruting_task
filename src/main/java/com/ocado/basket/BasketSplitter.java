@@ -37,14 +37,14 @@ public class BasketSplitter {
         }
     }
 
-    public int findBestPrevious(int[][][] table, int wiersz, List<Integer> possibleColumns) {
+    public int findBestPrevious(int[][][] table, int row, List<Integer> possibleColumns) {
         int column = -1;
         int mini = suppliers.size() + 1;
 
         for (int currentColumn : possibleColumns) {
             int currVal = 0;
             for (int i = 0; i < suppliers.size(); i++) {
-                if (table[wiersz][currentColumn][i] != 0) {
+                if (table[row][currentColumn][i] != 0) {
                     currVal += 1;
                 }
             }
@@ -83,7 +83,7 @@ public class BasketSplitter {
         return bestOutcome;
     }
 
-    // Puts items into given Suppliers in best possible way.
+    // Puts items into given Suppliers in the best possible way.
     public Map<String, List<String>> bestArrangement(List<String> items, List<Integer> bestSuppliers) {
 
         int[] table = new int[suppliers.size()];
